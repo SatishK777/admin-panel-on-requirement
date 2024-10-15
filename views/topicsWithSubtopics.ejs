@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topics and Subtopics</title>
+  <style>
+    body {
+      background-color: #212121;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: #171717;
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .topic {
+      background-color: #2b2b2b;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .topic:hover {
+      transform: scale(1.03);
+    }
+
+    .topic h2 {
+      margin-bottom: 10px;
+      color: #00aaff;
+    }
+
+    .subtopics {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    .subtopics h4 {
+      color: #00cc66;
+      margin-bottom: 10px;
+    }
+
+    .subtopic {
+      padding: 10px;
+      background-color: #333;
+      margin-bottom: 10px;
+      border-left: 4px solid #007bff;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .subtopic:hover {
+      background-color: #3a3a3a;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    p strong {
+      color: #ffcc00;
+    }
+
+    /* Scrollbar styling */
+    body::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    body::-webkit-scrollbar-track {
+      background-color: #171717;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background-color: #555;
+      border-radius: 5px;
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+      background-color: #888;
+    }
+
+    .delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.top-links a{
+  color: white;
+  text-decoration: none;
+}
+  </style>
+</head>
+
+<body>
+  <div class="top-links">
+    <a href="/dashboard"><-- Back To Dashboard</a>
+  </div>
+  <div class="container">
+    <h1>Topics and Subtopics</h1>
+
+    <% topics.forEach(topic => { %>
+      <div class="topic">
+        <h2>TOPIC :- <%= topic.title %></h2>
+        <p><strong>Posted by:</strong> <%= topic.user.fname %></p>
+
+       
+        <div class="subtopics">
+          <h4>Subtopics:</h4>
+          <% if (topic.subtopics.length > 0) { %>
+            <% topic.subtopics.forEach(subtopic => { %>
+              <div class="subtopic">
+                <p><%= subtopic.title %> (Posted by: <%= subtopic.user.fname %>)</p>
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p>No subtopics added for this topic.</p>
+          <% } %>
+        </div>
+
+        <% if (currentUserId && currentUserId.toString() === topic.user._id.toString()) { %>
+          <form action="/delete-topic/<%= topic._id %>" method="POST" style="display:inline;">
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+         <% } %>
+
+      </div>
+    <% }) %>
+
+  </div>
+</body>
+
+</html>

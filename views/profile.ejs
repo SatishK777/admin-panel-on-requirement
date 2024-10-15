@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+  
+    <style>
+        /* Profile container styling */
+        body{
+            background-color: #212121;
+        }
+        .profile-container {
+            width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: #171717;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+        }
+        
+
+        /* Profile picture styling */
+        .profile-container img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        /* User info styling */
+        .profile-container h1 {
+            /* font-size: 24px; */
+            color: #fff;
+        }
+
+        .profile-container p {
+            font-size: 18px;
+            color: #666;
+            box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+            padding: 0.5em;
+        }
+
+        /* Subtle hover effect on the container */
+        .profile-container:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .btn {
+            margin-top: 2em;
+            padding: 1em;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            transition: .4s ease-in-out;
+            background-color: #252525;
+            
+        }
+        .btn a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <!-- Profile Picture -->
+        <h1>Profile</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDgYH1ojUccuNjEZoqcHCZNqRaN3rW9pl9vQ&s">
+
+        <!-- User Details -->
+        <p><strong>Name:</strong> <%= user.fname %></p>
+        <p><strong>Email:</strong> <%= user.email %></p>
+        <button class="btn"><a href="/dashboard">Back to Dashboard</a></button>
+    </div>
+
+</body>
+</html>

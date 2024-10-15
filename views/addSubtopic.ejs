@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Subtopic</title>
+  <style>
+    body {
+      background-color: #212121;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      margin: 150px auto;
+      padding: 2em;
+      background-color: #171717;
+      border-radius: 25px;
+      transition: 0.4s ease-in-out;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .container:hover {
+      transform: scale(1.05);
+      border: 1px solid black;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #d3d3d3;
+    }
+
+    select, input[type="text"] {
+      padding: 10px;
+      background-color: #252525;
+      color: #d3d3d3;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.4s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    button:active {
+      background-color: #1e7e34;
+    }
+
+    .top-links {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.top-links a {
+  color: #000;
+  width: 100%;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.top-links a:hover {
+  background-color: #000;
+  color: white;
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Add a Subtopic</h1>
+    <form action="/add-subtopic" method="POST">
+      <label for="topic">Select Topic:</label>
+      <select name="topicId" id="topic" required>
+        <% topics.forEach(topic => { %>
+          <option value="<%= topic._id %>"><%= topic.title %></option>
+        <% }) %>
+      </select>
+
+      <label for="subtopic">Subtopic Title:</label>
+      <input type="text" id="subtopic" name="subtopic" placeholder="Enter subtopic title" required>
+
+      <button type="submit">Add Subtopic</button>
+      <div class="top-links">
+        <a href="/dashboard">Back To Dashboard</a>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

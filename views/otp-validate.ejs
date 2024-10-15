@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5 vh-100">
+        <h1 class="text-center mb-5 text-white-50">Forget Password
+          <hr />
+        </h1>
+        <div class="card mx-auto p-3" style="max-width: 600px;">
+          <div class="card-body">
+            <form action="/otp-post-validate" method="POST">
+              <div class="mb-3">
+                <label for="otp" class="form-label">Email</label>
+                <input type="number" id="otp" name="otp" class="form-control fw-bold text-center" placeholder="Enter OTP" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-25 mt-3">Confirm</button>
+            </form>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
