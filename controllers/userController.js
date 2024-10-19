@@ -203,29 +203,33 @@ const forgetPasswordValidatePostController = async (req, res) => {
 // Forget Password Page
 const forgetPasswordController = async (req, res) => {
   const userId = req.params.id;
+  console.log("userId", userId);
 
   try {
+    // Find the user by ID
     const existingUser = await user.findById(userId);
 
-    //Check if token is valid and not null
-    if (!existingUser.token) {
-      console.log('Token is not valid or expired');
-      req.flash('error', 'Link is not valid or expired');
-      return res.redirect('/page404');
-    }
-    console.log('Token Validated:', existingUser.token);
-
-
+    // Check if user exists
     if (!existingUser) {
       console.log('User not found');
       req.flash('error', 'User not found');
       return res.redirect('/page404');
     }
 
+    // Check if token is valid and not null
+    if (!existingUser.token) {
+      console.log('Token is not valid or expired');
+      req.flash('error', 'Link is not valid or expired');
+      return res.redirect('/page404');
+    }
+
+    // If user and token are valid, render the forget-password page
+    console.log('Token Validated:', existingUser.token);
     return res.render('forget-password', { userId });
+
   } catch (err) {
-    console.log('Error finding user:');
-    req.flash('error', 'User not found');
+    console.log('Error finding user:', err);
+    req.flash('error', 'An error occurred');
     return res.redirect('/page404');
   }
 };
