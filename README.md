@@ -44,4 +44,6 @@ A full-featured Blog Post Panel built with Node.js, Express.js, MongoDB, and EJS
 ![Screenshot 2024-09-22 212844](https://github.com/user-attachments/assets/654b12ef-2dbc-4b3c-a888-822cf46545aa)
 ![Screenshot 2024-09-22 212744](https://github.com/user-attachments/assets/2ae08497-488c-4ad0-939d-52d1f8498e5f)
 ![Screenshot 2024-09-22 212651](https://github.com/user-attachments/assets/1f1428a9-f297-4e39-800d-1c19e314c03a)
-
+![Screenshot 2024-10-19 205525](https://github.com/user-attachments/assets/e4367df0-8dee-4ad7-87fd-c9a996439af4)
+![Screenshot 2024-10-19 205359](https://github.com/user-attachments/assets/07fd1943-ca46-41be-8475-7256c0a5d9c3)
+![Screenshot 2024-10-19 205334](https://github.com/user-attachments/assets/294a0e6e-bbb6-457a-a6f8-cd2dff127247)
